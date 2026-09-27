@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ismail Hosen Polash — Education Researcher & Curriculum Technologist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --surface:#F6F8FC; --surface2:#EEF1F8; --border:#E3E8F2;
+  --text:#0F172A; --muted:#5B6478; --accent:#4F46E5; --accent2:#06B6D4;
+  --accent-soft:#EEF0FF; --grad:linear-gradient(135deg,#4F46E5,#06B6D4);
+  --maxw:960px;
+}
+[data-theme="dark"]{
+  --bg:#0B1220; --surface:#121A2C; --surface2:#182238; --border:#233150;
+  --text:#E7ECF5; --muted:#93A1BE; --accent:#818CF8; --accent2:#22D3EE;
+  --accent-soft:#1B1F3B;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6; transition:background .3s,color .3s;}
+h1,h2,h3{font-family:'Outfit',sans-serif; font-weight:600; letter-spacing:-0.01em;}
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+section{padding:88px 0;}
+
+#scroll-bar{position:fixed; top:0; left:0; height:3px; background:var(--grad); z-index:100; width:0%;}
+
+header{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px); background:color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--border);}
+nav.wrap{display:flex; align-items:center; justify-content:space-between; padding:16px 24px;}
+.brand{font-family:'Outfit',sans-serif; font-weight:700; font-size:1.05rem;}
+.navlinks{display:flex; gap:28px; align-items:center;}
+.navlinks a{font-size:.92rem; color:var(--muted); transition:color .2s;}
+.navlinks a:hover{color:var(--accent);}
+.toggle{width:38px; height:38px; border-radius:8px; border:1px solid var(--border); background:var(--surface); cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text); font-size:16px;}
+.navmenu-btn{display:none; background:none; border:none; color:var(--text); font-size:1.4rem; cursor:pointer;}
+@media(max-width:720px){
+  .navlinks{position:fixed; top:64px; left:0; right:0; background:var(--surface); flex-direction:column; padding:20px 24px; border-bottom:1px solid var(--border); display:none; gap:16px;}
+  .navlinks.open{display:flex;}
+  .navmenu-btn{display:block;}
+}
+
+.hero{padding:110px 0 90px; position:relative; overflow:hidden;}
+.hero::before{
+  content:''; position:absolute; top:-200px; right:-200px; width:520px; height:520px;
+  background:var(--grad); opacity:.18; border-radius:50%; filter:blur(60px); z-index:0;
+}
+.hero-grid{display:flex; gap:48px; align-items:center; position:relative; z-index:1; flex-wrap:wrap-reverse;}
+.hero-text{flex:1 1 420px;}
+.eyebrow{color:var(--accent); font-size:.9rem; font-weight:600; margin-bottom:14px; min-height:1.4em;}
+.hero h1{font-size:clamp(2.1rem,5vw,3rem); line-height:1.15; max-width:16ch;}
+.hero p.pitch{color:var(--muted); font-size:1.06rem; max-width:56ch; margin-top:20px;}
+.cta-row{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+.btn{padding:12px 22px; border-radius:8px; font-size:.94rem; font-weight:600; display:inline-flex; align-items:center; gap:8px; transition:transform .15s, box-shadow .2s;}
+.btn-primary{background:var(--grad); color:#fff; box-shadow:0 8px 24px -8px rgba(79,70,229,.55);}
+.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{border:1px solid var(--border); color:var(--text);}
+.btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+.social-row{display:flex; gap:18px; margin-top:34px;}
+.social-row a{color:var(--muted); font-size:.9rem; border-bottom:1px solid transparent;}
+.social-row a:hover{color:var(--accent); border-color:var(--accent);}
+
+.avatar-wrap{flex:0 0 auto; position:relative; width:190px; height:190px;}
+.avatar-ring{position:absolute; inset:-8px; border-radius:50%; background:var(--grad); opacity:.5; filter:blur(10px);}
+.avatar{position:relative; width:190px; height:190px; border-radius:50%; object-fit:cover; border:4px solid var(--bg); background:var(--surface2);}
+.avatar-fallback{position:relative; width:190px; height:190px; border-radius:50%; border:4px solid var(--bg); background:var(--grad); display:flex; align-items:center; justify-content:center; font-family:'Outfit',sans-serif; font-size:3rem; font-weight:700; color:#fff;}
+
+.about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:48px;}
+@media(max-width:720px){.about-grid{grid-template-columns:1fr;}}
+.about-grid p{color:var(--muted); margin-top:14px;}
+.stat-box{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:14px;}
+.stat-box .n{font-family:'Outfit',sans-serif; font-size:1.7rem; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700;}
+.stat-box .l{color:var(--muted); font-size:.86rem; margin-top:4px;}
+
+.sec-head{margin-bottom:44px;}
+.sec-head h2{font-size:1.7rem;}
+.sec-head p{color:var(--muted); margin-top:8px;}
+
+.timeline{position:relative; padding-left:28px; border-left:2px solid var(--border);}
+.tl-item{position:relative; padding-bottom:40px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{content:''; position:absolute; left:-33px; top:4px; width:12px; height:12px; border-radius:50%; background:var(--grad); border:3px solid var(--bg);}
+.tl-item .role{font-size:1.05rem; font-weight:600;}
+.tl-item .org{color:var(--accent); font-size:.92rem; margin-top:2px; font-weight:500;}
+.tl-item .dates{color:var(--muted); font-size:.82rem; margin-top:2px;}
+.tl-item ul{margin-top:12px; padding-left:18px; color:var(--muted); font-size:.94rem;}
+.tl-item li{margin-bottom:6px;}
+
+.card-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+@media(max-width:720px){.card-grid{grid-template-columns:1fr;}}
+.card{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:24px; transition:border-color .2s, transform .2s, box-shadow .2s;}
+.card:hover{border-color:var(--accent); transform:translateY(-4px); box-shadow:0 12px 28px -14px rgba(79,70,229,.35);}
+.card h3{font-size:1.05rem;}
+.card p{color:var(--muted); font-size:.9rem; margin-top:10px;}
+.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+.tag{font-size:.76rem; padding:4px 10px; border-radius:20px; background:var(--accent-soft); color:var(--accent); border:1px solid var(--border); font-weight:500;}
+
+.skill-cat{margin-bottom:28px;}
+.skill-cat h3{font-size:.95rem; color:var(--muted); font-weight:500; margin-bottom:12px;}
+.skill-badges{display:flex; flex-wrap:wrap; gap:10px;}
+.badge{padding:8px 14px; border:1px solid var(--border); border-radius:8px; font-size:.86rem; background:var(--surface); transition:border-color .2s, color .2s;}
+.badge:hover{border-color:var(--accent); color:var(--accent);}
+
+.contact-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+@media(max-width:720px){.contact-grid{grid-template-columns:1fr;}}
+.contact-card{background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px; text-align:left; transition:border-color .2s, transform .2s;}
+.contact-card:hover{border-color:var(--accent); transform:translateY(-3px);}
+.contact-card .k{color:var(--muted); font-size:.82rem;}
+.contact-card .v{font-size:1rem; margin-top:6px; font-weight:600;}
+
+footer{border-top:1px solid var(--border); padding:36px 0;}
+.foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+.foot-links{display:flex; gap:20px;}
+.foot-links a{color:var(--muted); font-size:.86rem;}
+.foot-links a:hover{color:var(--accent);}
+#top-btn{color:var(--muted); font-size:.86rem; border:1px solid var(--border); padding:8px 14px; border-radius:8px;}
+#top-btn:hover{color:var(--accent); border-color:var(--accent);}
+
+@media (prefers-reduced-motion: reduce){ *{transition:none !important;} }
+</style>
+</head>
+<body>
+<div id="scroll-bar"></div>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Ismail Hosen Polash</div>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#initiatives">Initiatives</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <button class="toggle" id="theme-toggle" aria-label="Toggle theme">◐</button>
+      <button class="navmenu-btn" id="menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow" id="rotating-role">Education Researcher</div>
+      <h1>Building inclusive, technology-integrated learning experiences.</h1>
+      <p class="pitch">I design curriculum, research educational technology, and produce accessible learning content — from Bangla audiobooks for children with diverse needs to TPACK research on teacher readiness. Currently pursuing an MEd at the Institute of Education and Research, University of Dhaka.</p>
+      <div class="cta-row">
+        <a href="#initiatives" class="btn btn-primary">View Initiatives</a>
+        <a href="CV_Latest.pdf" class="btn btn-ghost" download>Download CV</a>
+      </div>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/ismail-hosen-polash-8bb448234" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:ismailhosenpolash124@gmail.com">Email</a>
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <img class="avatar" src="polash.jpg" alt="Ismail Hosen Polash" onerror="this.outerHTML='<div class=avatar-fallback>IHP</div>'">
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>About</h2></div>
+    <div class="about-grid">
+      <div>
+        <p>I work at the intersection of curriculum design, educational technology, and inclusive education. My academic training at IER, University of Dhaka, is grounded in frameworks like TPACK, SAMR, ADDIE, and Universal Design for Learning — which I apply directly in the field, from BRAC classrooms to research on teacher technological readiness.</p>
+        <p>Alongside research and teaching, I produce accessible learning content: Bangla audiobooks, voice-over narration, and English-learning scripts reaching underserved learners across Bangladesh.</p>
+      </div>
+      <div>
+        <div class="stat-box"><div class="n">3+ yrs</div><div class="l">Teaching & instructional design</div></div>
+        <div class="stat-box"><div class="n">2 yrs</div><div class="l">Leading Stories of Inclusion resource development</div></div>
+        <div class="stat-box"><div class="n">38</div><div class="l">Students re-engaged via USAID civic leadership project</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><h2>Education</h2></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="role">Master's in Education (MEd)</div>
+        <div class="org">Institute of Education and Research (IER), University of Dhaka</div>
+        <div class="dates">2025 – Present · Specialization: Curriculum and Instructional Technology</div>
+        <ul>
+          <li>Coursework in curriculum development, instructional design, educational technology integration, research methods, and assessment</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="role">Bachelor of Education (Honours)</div>
+        <div class="org">Institute of Education and Research (IER), University of Dhaka</div>
+        <div class="dates">2020 – 2024 · Major: Education and Research · Non-Major: Bengali and English</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head"><h2>Experience</h2><p>Academic and professional milestones, most recent first.</p></div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="role">Lead, Curriculum and Resource Development</div>
+        <div class="org">Stories of Inclusion (SOI), Amra Notun Network / BRAC</div>
+        <div class="dates">Oct 2024 – Present</div>
+        <ul>
+          <li>Lead inclusive lesson plan and resource development using Universal Design for Learning</li>
+          <li>Contribute to an Inclusive Education Guidebook for teachers, schools, and caregivers</li>
+          <li>Produce Bangla audiobooks and voice-over learning materials for accessible education</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="role">Bridge Intern</div>
+        <div class="org">BRAC Education Programme</div>
+        <div class="dates">Jul 2025 – Jan 2026</div>
+        <ul>
+          <li>Developed teacher's guides and instructional materials for BRAC Academy schools</li>
+          <li>Applied instructional planning principles to classroom-support resources</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="role">Content Writer, RCT Project</div>
+        <div class="org">10 Minute School, with Monash University</div>
+        <div class="dates">Jul 2024 – Dec 2024</div>
+        <ul>
+          <li>Wrote English-learning scripts for learners in rural and underserved contexts</li>
+          <li>Contributed learner-friendly digital education content to a Monash-collaboration RCT</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="role">Teaching Intern</div>
+        <div class="org">University Laboratory School and College</div>
+        <div class="dates">Nov 2024 – Feb 2025</div>
+        <ul>
+          <li>Taught Bengali and English content across secondary-level classes</li>
+          <li>Prepared lesson plans and conducted classroom assessment</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="role">Instructor of English</div>
+        <div class="org">Shahira Academic Care · Particle Educational Institute · Mojaru</div>
+        <div class="dates">2022 – Present</div>
+        <ul>
+          <li>Taught grammar, reading, and writing across multiple institutions</li>
+          <li>Designed supplementary materials adapted to individual learner needs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="initiatives">
+  <div class="wrap">
+    <div class="sec-head"><h2>Research & Initiatives</h2><p>Selected research, curriculum, and content projects.</p></div>
+    <div class="card-grid">
+      <div class="card">
+        <h3>TPACK Readiness Among Intern EFL Teachers</h3>
+        <p>Ongoing research examining the relationship between TPACK domains and technological readiness among intern EFL teachers during their practicum.</p>
+        <div class="tags"><span class="tag">TPACK</span><span class="tag">Quantitative</span><span class="tag">Teacher Education</span></div>
+      </div>
+      <div class="card">
+        <h3>Inclusive Education Guidebook</h3>
+        <p>Contributing lesson plans and UDL-based classroom strategies to a guidebook for teachers, special schools, and caregivers under Stories of Inclusion.</p>
+        <div class="tags"><span class="tag">UDL</span><span class="tag">Inclusive Design</span><span class="tag">Curriculum</span></div>
+      </div>
+      <div class="card">
+        <h3>CPD Program Effectiveness Study</h3>
+        <p>Field research examining the effectiveness of Continuous Professional Development training, including stakeholder interviews across multiple districts.</p>
+        <div class="tags"><span class="tag">Field Research</span><span class="tag">Qualitative</span></div>
+      </div>
+      <div class="card">
+        <h3>Accessible Audio Learning Materials</h3>
+        <p>Bangla audiobooks and voice-over narration produced for children with diverse learning needs, supporting alternative formats of access to content.</p>
+        <div class="tags"><span class="tag">Voice-over</span><span class="tag">Accessibility</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>Skills & Frameworks</h2></div>
+    <div class="skill-cat">
+      <h3>Curriculum & Instructional</h3>
+      <div class="skill-badges">
+        <span class="badge">TPACK</span><span class="badge">SAMR</span><span class="badge">ADDIE</span>
+        <span class="badge">Universal Design for Learning</span><span class="badge">Lesson Planning</span>
+        <span class="badge">Assessment Design</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <h3>Research & Writing</h3>
+      <div class="skill-badges">
+        <span class="badge">Qualitative & Quantitative Research</span><span class="badge">FGDs</span>
+        <span class="badge">Academic Writing (APA)</span><span class="badge">Research Instruments</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <h3>Digital & Content Tools</h3>
+      <div class="skill-badges">
+        <span class="badge">Canva</span><span class="badge">Google Workspace</span>
+        <span class="badge">Audio Recording & Voice-over</span><span class="badge">Digital Content Development</span>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <h3>Languages</h3>
+      <div class="skill-badges">
+        <span class="badge">Bengali — Native</span><span class="badge">English — Professional</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head"><h2>Contact</h2><p>Open to postgraduate opportunities in TESOL/ESOL and collaboration on education research.</p></div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:ismailhosenpolash124@gmail.com">
+        <div class="k">Email</div><div class="v">ismailhosenpolash124@gmail.com</div>
+      </a>
+      <a class="contact-card" href="tel:+8801889107696">
+        <div class="k">Phone</div><div class="v">+880 1889 107696</div>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/ismail-hosen-polash-8bb448234" target="_blank" rel="noopener">
+        <div class="k">LinkedIn</div><div class="v">ismail-hosen-polash</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>© <span id="year"></span> Ismail Hosen Polash</div>
+    <div class="foot-links">
+      <a href="#about">About</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    </div>
+    <a href="#" id="top-btn">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const root = document.documentElement;
+  const toggleBtn = document.getElementById('theme-toggle');
+  const saved = localStorage.getItem('theme');
+  if(saved === 'dark') root.setAttribute('data-theme','dark');
+  toggleBtn.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if(isDark){ root.removeAttribute('data-theme'); localStorage.setItem('theme','light'); }
+    else { root.setAttribute('data-theme','dark'); localStorage.setItem('theme','dark'); }
+  });
+
+  const menuBtn = document.getElementById('menu-btn');
+  const navlinks = document.getElementById('navlinks');
+  menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  // Scroll progress bar
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    document.getElementById('scroll-bar').style.width = pct + '%';
+  });
+
+  // Rotating role titles
+  const roles = ['Education Researcher','Curriculum & Instructional Technologist','Voice-over Artist','Inclusive Education Advocate'];
+  let ri = 0;
+  const roleEl = document.getElementById('rotating-role');
+  setInterval(() => {
+    ri = (ri + 1) % roles.length;
+    roleEl.style.opacity = 0;
+    setTimeout(() => { roleEl.textContent = roles[ri]; roleEl.style.opacity = 1; }, 250);
+  }, 2600);
+  roleEl.style.transition = 'opacity .25s ease';
+</script>
+</body>
+</html>
